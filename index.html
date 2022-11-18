@@ -10,13 +10,27 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-       <h1>Etch A Sketch</h1>
+        <h1>Etch A Sketch</h1>
 
-       <button class='btn'>New Grid</button>
-        
-       <div id="container">
+        <!--<button class='btn'>New Grid</button>-->
+        <input type="button" class="btn" value="New Grid">
 
-       </div>
+        <form>
+            <input type="radio" name="colors" class="black" value="Black" checked>
+            <label for="black">Black</label>
+            <input type="radio" name="colors" class="rainbow" value="Rainbow">
+            <label for="rainbow">Rainbow</label>
+            <input type="radio" name="colors" class="eraser" value="Eraser">
+            <label for="eraser">Eraser</label>
+        </form>
+        <!--<button id="colors" class='rainbow'>Rainbow</button>
+        <button id="colors" class='black'>Black</button>-->
+                
+        <div id="container">
+            <!--<div class="square"></div>-->
+        </div>
+
+
         <script src="main.js"></script>
     </body>
 </html>
