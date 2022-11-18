@@ -41,10 +41,9 @@ function createGrid(z) {
         square.className = 'square';
         container.appendChild(square);
         let color = defaultColor;
-        square.setAttribute('style', `backgroundColor: ${color}`)
+        square.style.backgroundColor = color;
         document.getElementById("container").style.gridTemplateColumns = `repeat(${z}, 1fr)`;
         document.getElementById("container").style.gridTemplateRows = `repeat(${z}, 1fr)`;
-
         square.addEventListener('mouseover', ()=>draw());
         
     };

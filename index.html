@@ -8,27 +8,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css_reset.css">
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baumans&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>Etch A Sketch</h1>
 
-        <!--<button class='btn'>New Grid</button>-->
-        <input type="button" class="btn" value="New Grid">
-        <input type="button" class="clear" value="Clear Grid">
+        <div class="allButtons">
+            <div class="gridButtons">
+                <input type="button" class="btn" value="New Grid">
+                <input type="button" class="clear" value="Clear Grid">
+            </div>
 
-        <form>
-            <input type="radio" name="colors" class="black" value="Black" checked>
-            <label for="black">Black</label>
-            <input type="radio" name="colors" class="rainbow" value="Rainbow">
-            <label for="rainbow">Rainbow</label>
-            <input type="radio" name="colors" class="eraser" value="Eraser">
-            <label for="eraser">Eraser</label>
-        </form>
-        <!--<button id="colors" class='rainbow'>Rainbow</button>
-        <button id="colors" class='black'>Black</button>-->
-                
-        <div id="container">
-            <div class="square"></div>
+            <div class="colorButtons">
+                <form name="ColorSelectors">
+                    <input type="radio" name="colors" class="black" value="Black" checked>
+                    <label for="black">Black</label>
+                    <input type="radio" name="colors" class="rainbow" value="Rainbow">
+                    <label for="rainbow">Rainbow</label>
+                    <input type="radio" name="colors" class="eraser" value="Eraser">
+                    <label for="eraser">Eraser</label>
+                </form>
+            </div>
+
+        </div>
+        
+        <div class="grid">
+            <div id="container"></div>
         </div>
 
 
