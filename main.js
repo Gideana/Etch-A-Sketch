@@ -1,8 +1,6 @@
 const container = document.querySelector('#container');
 const btn = document.querySelector('.btn');
 const clear = document.querySelector('.clear');
-//const rainbow = document.querySelector('.rainbow');
-//const black = document.querySelector('.black');
 const square = document.querySelectorAll('.square');
 const radioButtons = document.querySelectorAll('input[name="colors"]');
 const squares = document.getElementsByClassName('square');
@@ -64,31 +62,7 @@ btn.addEventListener('click', function() {
 
 clear.addEventListener('click', function() {
     const squares = document.querySelectorAll('.square');
-    //squares.setAttribute('style', `backgroundColor: ${color}`)
     squares.forEach((square) => {
         square.style.backgroundColor= defaultColor;
     })
-    //return(createGrid(z, color));
 })
-
-//const buttons = document.querySelectorAll('#colors');
-//       buttons.forEach((button) => {
-//           button.addEventListener('click', changeColor())
-//        })  
-
-
-//function changeColor() {
-//    square.addEventListener('mouseover', (event) =>{
-//        const squares = document.querySelectorAll('#square')
-//        event.target.style.backgroundColor = color;
-//    
-//        if (this.className === 'rainbow') {
-//            let color = '#' + Math.floor(Math.random()*16777215).toString(16);
-//        } else if (this.className === 'black') {
-//            let color = '#000000';
-//        } else {
-//            let color = '#000000';
-//        }
-//    console.log(color);
-//});
-//}
