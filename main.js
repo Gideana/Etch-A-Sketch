@@ -1,9 +1,11 @@
 const container = document.querySelector('#container');
 const btn = document.querySelector('.btn');
+const clear = document.querySelector('.clear');
 //const rainbow = document.querySelector('.rainbow');
 //const black = document.querySelector('.black');
 const square = document.querySelectorAll('.square');
 const radioButtons = document.querySelectorAll('input[name="colors"]');
+const squares = document.getElementsByClassName('square');
 
 const defaultColor = '#FFFFFF';
 const defaultBackgroundColor = '#000000';
@@ -11,39 +13,28 @@ var color = '#000000';
 
 window.onload = createGrid(16);
 
-function changeColor() {
-    for (const radioButton of radioButtons) {
-        if (radioButton.checked) {
-            colorName = radioButton.value;
+function getRainbowColors() {
+    var rainbowColors = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return(rainbowColors);
+}
 
+function draw() {
+    for (const square of squares) {
+        square.addEventListener('mouseover', (event) =>{
+            let colorName = document.querySelector('input[name="colors"]:checked').value;
             if (colorName === 'Rainbow') {
-                color = '#' + Math.floor(Math.random()*16777215).toString(16);
+                color = getRainbowColors();
             } else if (colorName === 'Black') {
                 color = '#000000';
             } else if (colorName === 'Eraser') {
                 color = '#FFFFFF';
             }
-            return(color);
-        };
-    };  
-};
-
-function draw() {
-    const squares = document.getElementsByClassName('square');
-    for (const square of squares) {
-        square.addEventListener('mouseover', (event) =>{
+            
             square.style.backgroundColor = color;
             console.log(color);
+            return(color);
         });
     };
-        for (const radioButton of radioButtons) {
-            if (radioButton.checked) {
-                colorName = radioButton.value;
-                console.log(colorName);
-            };
-            radioButton.addEventListener('change', ()=>changeColor());
-        }
-    //};
 };
 
 function createGrid(z) {
@@ -52,7 +43,7 @@ function createGrid(z) {
         square.className = 'square';
         container.appendChild(square);
         let color = defaultColor;
-        square.style.backgroundColor = color;
+        square.setAttribute('style', `backgroundColor: ${color}`)
         document.getElementById("container").style.gridTemplateColumns = `repeat(${z}, 1fr)`;
         document.getElementById("container").style.gridTemplateRows = `repeat(${z}, 1fr)`;
 
@@ -71,7 +62,14 @@ btn.addEventListener('click', function() {
     }
 });
 
-
+clear.addEventListener('click', function() {
+    const squares = document.querySelectorAll('.square');
+    //squares.setAttribute('style', `backgroundColor: ${color}`)
+    squares.forEach((square) => {
+        square.style.backgroundColor= defaultColor;
+    })
+    //return(createGrid(z, color));
+})
 
 //const buttons = document.querySelectorAll('#colors');
 //       buttons.forEach((button) => {
